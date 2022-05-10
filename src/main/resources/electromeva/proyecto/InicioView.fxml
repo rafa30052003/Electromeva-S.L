@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="electromeva.proyecto.InicioController">
+   <children>
+      <ImageView fitHeight="400.0" fitWidth="606.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../imagenes/electrodomesticos-marysol_129287_0_600.jpg" />
+         </image>
+      </ImageView>
+      <BorderPane prefHeight="400.0" prefWidth="600.0">
+         <top>
+            <MenuBar BorderPane.alignment="CENTER">
+              <menus>
+                <Menu mnemonicParsing="false">
+                     <graphic>
+                        <Label text="Inicio" textFill="#0055ff">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </graphic>
+                </Menu>
+                <Menu mnemonicParsing="false">
+                     <graphic>
+                        <Label onMouseClicked="#switchToClientes" text="Cliente" textFill="#0055ff">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </graphic>
+                </Menu>
+                <Menu mnemonicParsing="false">
+                     <graphic>
+                        <Label onMouseClicked="#switchToProductos" text="Productos" textFill="#0055ff">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </graphic>
+                </Menu>
+                  <Menu mnemonicParsing="false">
+                     <graphic>
+                        <Label fx:id="btn_salir" onMouseClicked="#salir" text="Salir" textFill="#0055ff">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </graphic>
+                  </Menu>
+              </menus>
+               <padding>
+                  <Insets bottom="6.0" />
+               </padding>
+            </MenuBar>
+         </top>
+         <center>
+            <Text fill="#ffd400" strokeType="OUTSIDE" strokeWidth="0.0" text="ELECTROMEVA S.L." BorderPane.alignment="CENTER">
+               <font>
+                  <Font size="64.0" />
+               </font>
+            </Text>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

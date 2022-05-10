@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="electromeva.proyecto.EditarClienteController">
+   <children>
+      <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../imagenes/electrodomesticos-marysol_129287_0_600.jpg" />
+         </image>
+      </ImageView>
+      <TextArea layoutX="372.0" layoutY="13.0" prefHeight="371.0" prefWidth="203.0" />
+      <TextField layoutX="101.0" layoutY="44.0" prefHeight="26.0" prefWidth="203.0" />
+      <Label layoutX="25.0" layoutY="48.0" text="Cod_C" textFill="WHITE" />
+      <TextField layoutX="101.0" layoutY="96.0" prefHeight="26.0" prefWidth="203.0" />
+      <TextField layoutX="101.0" layoutY="145.0" prefHeight="26.0" prefWidth="203.0" />
+      <TextField layoutX="101.0" layoutY="199.0" prefHeight="26.0" prefWidth="203.0" />
+      <Label layoutX="21.0" layoutY="100.0" text="Nombre" textFill="WHITE" />
+      <Label layoutX="18.0" layoutY="149.0" text="Apellidos" textFill="WHITE" />
+      <Label layoutX="18.0" layoutY="203.0" text="Apodo" textFill="WHITE" />
+      <Button layoutX="42.0" layoutY="282.0" mnemonicParsing="false" text="Insertar" />
+      <Button layoutX="164.0" layoutY="282.0" mnemonicParsing="false" text="Editar" />
+      <Button layoutX="286.0" layoutY="282.0" mnemonicParsing="false" text="Eliminar" />
+   </children>
+</AnchorPane>
