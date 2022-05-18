@@ -58,7 +58,9 @@ public class ProductoController implements Initializable {
 	 
 	 
 	 
-	 
+	 /*
+	  * metodo que muestra la base de datos en el tableView
+	  */
 	 @Override
 	 public void initialize(URL location, ResourceBundle resources) {
 		

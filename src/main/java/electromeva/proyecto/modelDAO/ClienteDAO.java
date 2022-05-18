@@ -1,55 +1,55 @@
 package electromeva.proyecto.modelDAO;
 
-import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
 import java.util.ArrayList;
 import java.util.List;
 
+import electromeva.proyecto.interfaces.DAO;
 import electromeva.proyecto.interfaces.IDAO;
 import electromeva.proyecto.model.dataobject.Cliente;
-import electromeva.proyecto.utils.Connect;
 
-public class ClienteDAO implements IDAO<Cliente, Integer> {
+
+public class ClienteDAO extends DAO implements IDAO <Cliente, Integer> {
 
 	
-		private Connection miConexion=null;
-			
-			
-			public ClienteDAO() {
-				super();
-				this.miConexion=Connect.getConnect();
-				
-			}
+		
 	
 	
 	
-	
+	/*
+	 * metodo para insetar un cliente en la base de datos
+	 */
 	@Override
 	public boolean insert(Cliente ob) {
 		boolean result = false;
-		String sql="insert cod_c, nombre, apellidos, apodo values(?,?,?,?)";
+		String sql="INSERT INTO clientes VALUES (null,?,?,?);";
 		try {
 			PreparedStatement sentencia = miConexion.prepareStatement(sql);
-			sentencia.setInt(1, ob.getCod_c());
-			sentencia.setString(2, ob.getNombre());
-			sentencia.setString(3, ob.getApellidos());
-			sentencia.setString(3, ob.getNombre());
+			
+			sentencia.setString(1, ob.getNombre());
+			sentencia.setString(2, ob.getApellidos());
+			sentencia.setString(3, ob.getApodo());
 			sentencia.executeUpdate();
 			result = true;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}		
-		return false;
+		return result;
 	}
-
+	
+	/*
+	 * busca al cliente por id en la base de datos
+	 */
 	@Override
-	public Cliente get(Integer id) {
+	public Cliente get(Integer id) throws SQLException {
 		Cliente c = null;
 		String sql="select cod_c, nombre, apellidos, apodo from clientes where cod_c=?";
-		try {
+		
 			PreparedStatement sentencia = miConexion.prepareStatement(sql);
 			sentencia.setInt(1, id);
 			ResultSet rs = sentencia.executeQuery();
@@ -59,13 +59,16 @@ public class ClienteDAO implements IDAO<Cliente, Integer> {
 			c.setNombre(rs.getString("nombre"));
 			c.setApellidos(rs.getString("apellidos"));
 			c.setApodo(rs.getString("apodo"));
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return null;
+		
+			
+			
+		
+		return c;
 	}
-
+	
+	/*
+	 * imprime todos los atrinbutos del cliente por pantalla
+	 */
 	@Override
 	public List<Cliente> getall() {
 		List <Cliente> listaClientes = new ArrayList<>();
@@ -93,28 +96,47 @@ public class ClienteDAO implements IDAO<Cliente, Integer> {
 		return listaClientes;
 		
 	}
-
+	/*
+	 * edita el cliente
+	 */
 	@Override
 	public int update(Cliente ob) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int delete(Cliente ob) {
-		int result =0;
-		String sql="Delete from producto where cod_c=? ";
+		int result= 0; 
+		
+		String sql="UPDATE clientes SET nombre = ?, apellidos = ?, apodo = ? WHERE clientes.cod_c = ?";
 		try {
 			PreparedStatement sentencia= miConexion.prepareStatement(sql);
-			sentencia.setInt(1, ob.getCod_c());
-			sentencia.executeUpdate();
-			result= 1;
+			sentencia.setString(1, ob.getNombre());
+			sentencia.setString(2, ob.getApellidos());
+			sentencia.setString(3, ob.getApodo());
+			sentencia.setInt(4, ob.getCod_c());
 			
+			sentencia.executeUpdate();
+			result=1;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return result;
+		
+	}
+	
+	/*
+	 * elimina al cliente por id
+	 */
+	@Override
+	public int delete(Cliente ob) throws SQLException {
+		int result =0;
+		String sql="Delete from clientes where cod_c=? ";
+		
+			PreparedStatement sentencia= miConexion.prepareStatement(sql);
+			sentencia.setInt(1, ob.getCod_c());
+			sentencia.executeUpdate();
+			result= 1;
+			
+		
+		return result;
 	}
 
+	
 }

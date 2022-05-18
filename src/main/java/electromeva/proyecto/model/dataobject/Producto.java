@@ -20,6 +20,15 @@ public class Producto {
 		this.modelo = modelo;
 		this.cod_c = cod_c;
 	}
+	
+	
+	public Producto(String nombre, String marca, String modelo, int cod_c) {
+		super();
+		this.nombre = nombre;
+		this.marca = marca;
+		this.modelo = modelo;
+		this.cod_c = cod_c;
+	}
 	public int getCod_p() {
 		return cod_p;
 	}

@@ -45,11 +45,10 @@ public class Connect {
 		try {
 			jaxbContext = JAXBContext.newInstance(DatosConexion.class);
 			Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-			DatosConexion newR = (DatosConexion) jaxbUnmarshaller.unmarshal(new File("conexion.xml"));
+			DatosConexion newR = (DatosConexion) jaxbUnmarshaller.unmarshal(Connect.class.getResource("/electromeva/conexion/conexion.xml"));
 			datosCon=newR;
 		} catch (JAXBException e) {
 			// TODO: handle exception
-			e.printStackTrace();
 		}
 		return datosCon;
 	}

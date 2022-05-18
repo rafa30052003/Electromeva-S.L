@@ -7,19 +7,35 @@ public class Cliente {
 	private String nombre;
 	private String apellidos;
 	private String apodo;
-	List<Producto> misProductos;
-	public Cliente(int cod_c, String nombre, String apellidos, String apodo, List<Producto> misProductos) {
+	
+	
+	public Cliente(int cod_c, String nombre, String apellidos, String apodo) {
 		super();
 		this.cod_c = cod_c;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 		this.apodo = apodo;
-		this.misProductos = misProductos;
 	}
+	
+	
+	
+	
+	public Cliente(String nombre, String apellidos, String apodo) {
+		super();
+		this.nombre = nombre;
+		this.apellidos = apellidos;
+		this.apodo = apodo;
+	}
+
+
+
+
 	public Cliente() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	
 	public int getCod_c() {
 		return cod_c;
 	}
@@ -44,17 +60,17 @@ public class Cliente {
 	public void setApodo(String apodo) {
 		this.apodo = apodo;
 	}
-	public List<Producto> getMisProductos() {
-		return misProductos;
-	}
-	public void setMisProductos(List<Producto> misProductos) {
-		this.misProductos = misProductos;
-	}
+	
+	
 	@Override
 	public String toString() {
-		return "Cliente [cod_c=" + cod_c + ", nombre=" + nombre + ", apellidos=" + apellidos + ", apodo=" + apodo
-				+ ", misProductos=" + misProductos + "]";
+		return "Cliente [cod_c=" + cod_c + ", nombre=" + nombre + ", apellidos=" + apellidos + ", apodo=" + apodo + "]";
 	}
+	
+	
+	
+	
+	
 	
 	
 	

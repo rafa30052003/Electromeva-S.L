@@ -47,7 +47,9 @@ public class ClienteController {
 	 private TableColumn<Cliente,String> apodo;
 	 
 	 
-	 
+	 /*
+	  * metodo que muestra la base de datos en el tableView
+	  */
 	 
 	 @FXML
 		protected void initialize() {
