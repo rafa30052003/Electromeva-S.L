@@ -1,22 +1,29 @@
 package electromeva.proyecto.modelDAO;
 
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import electromeva.proyecto.interfaces.DAO;
+
 import electromeva.proyecto.interfaces.IDAO;
 import electromeva.proyecto.model.dataobject.Cliente;
+import electromeva.proyecto.model.dataobject.Producto;
+import electromeva.proyecto.utils.Connect;
 
 
-public class ClienteDAO extends DAO implements IDAO <Cliente, Integer> {
+public class ClienteDAO implements IDAO <Cliente, Integer> {
 
 	
-		
+	private Connection miConexion;
+
+	public ClienteDAO() {
+		miConexion=Connect.getConnect();
+	}
 	
 	
 	
@@ -71,6 +78,7 @@ public class ClienteDAO extends DAO implements IDAO <Cliente, Integer> {
 	 */
 	@Override
 	public List<Cliente> getall() {
+		
 		List <Cliente> listaClientes = new ArrayList<>();
 		
 		String sql="select cod_c, nombre, apellidos, apodo from clientes";
@@ -137,6 +145,39 @@ public class ClienteDAO extends DAO implements IDAO <Cliente, Integer> {
 		
 		return result;
 	}
-
+	
+	
+	/**
+	 * Metodo el cual me devuelve una lista de productos
+	*/
+	
+	public List <Producto> getProduct(Cliente ob) {
+		
+		List <Producto> listaProductos = new ArrayList<>();
+		String sql="Select cod_p, nombre, marca, modelo from producto where producto.cod_c = ?";
+		try {
+			
+			PreparedStatement sentencia = miConexion.prepareStatement(sql);
+			 
+			sentencia.setInt(1, ob.getCod_c());
+			ResultSet rs = sentencia.executeQuery();
+			
+			while(rs.next()) {
+				
+				Producto p = new Producto();
+				p.setCod_p(rs.getInt("cod_p"));
+				p.setNombre(rs.getString("nombre"));
+				p.setMarca(rs.getString("marca"));
+				p.setModelo(rs.getString("modelo"));
+				listaProductos.add(p);
+				
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return listaProductos;
+		
+	}
 	
 }

@@ -7,6 +7,7 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -70,7 +71,7 @@
          <center>
             <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <TableView fx:id="mitablaProductos" layoutX="131.0" layoutY="62.0" prefHeight="260.0" prefWidth="437.0">
+                  <TableView fx:id="mitablaProductos" layoutX="138.0" layoutY="92.0" prefHeight="260.0" prefWidth="437.0">
                     <columns>
                       <TableColumn fx:id="cod_p" prefWidth="75.0" text="cod_p" />
                         <TableColumn fx:id="nombre" prefWidth="75.0" text="nombre" />
@@ -79,7 +80,10 @@
                         <TableColumn fx:id="cod_c" prefWidth="69.0" text="cod_c" />
                     </columns>
                   </TableView>
-                  <Button layoutX="34.0" layoutY="171.0" mnemonicParsing="false" onAction="#switchToEditar" text="EDITAR" />
+                  <Button layoutX="34.0" layoutY="197.0" mnemonicParsing="false" onAction="#switchToEditar" text="INSERTAR" />
+                  <Button layoutX="34.0" layoutY="254.0" mnemonicParsing="false" onAction="#eliminar" text="ELIMINAR" />
+                  <TextField fx:id="buscar" layoutX="357.0" layoutY="36.0" />
+                  <Label layoutX="286.0" layoutY="40.0" text="BUSCAR" textFill="WHITE" />
                </children>
             </Pane>
          </center>

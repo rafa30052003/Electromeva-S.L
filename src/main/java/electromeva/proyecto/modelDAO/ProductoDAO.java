@@ -1,6 +1,7 @@
 package electromeva.proyecto.modelDAO;
 
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -8,16 +9,22 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import electromeva.proyecto.interfaces.DAO;
+
 import electromeva.proyecto.interfaces.IDAO;
 
 import electromeva.proyecto.model.dataobject.Producto;
+import electromeva.proyecto.utils.Connect;
 
 
-public class ProductoDAO extends DAO implements IDAO<Producto,Integer> {
+public class ProductoDAO implements IDAO<Producto,Integer> {
 	
+	private ClienteDAO cDAO;
 	
-	
+	private Connection miConexion;
+
+	public ProductoDAO() {
+		miConexion=Connect.getConnect();
+	}
 	
 	
 	
@@ -35,7 +42,7 @@ public class ProductoDAO extends DAO implements IDAO<Producto,Integer> {
 			sentencia.setString(1, ob.getNombre());
 			sentencia.setString(2, ob.getMarca());
 			sentencia.setString(3, ob.getModelo());
-			sentencia.setInt(4, ob.getCod_c());
+			sentencia.setInt(4, ob.getC().getCod_c());
 			
 			sentencia.executeUpdate();
 			result = true;
@@ -62,7 +69,8 @@ public class ProductoDAO extends DAO implements IDAO<Producto,Integer> {
 		p.setNombre(rs.getString("nombre"));
 		p.setMarca(rs.getString("marca"));
 		p.setModelo(rs.getString("modelo"));
-		p.setCod_c(rs.getInt("cod_c"));
+		p.setC(new ClienteDAO().get(rs.getInt("cod_c")));
+		//utilizar el metodo get(clienteDAO) para obtener un cliente por el id
 		return p;
 	}
 	/*
@@ -87,7 +95,8 @@ public class ProductoDAO extends DAO implements IDAO<Producto,Integer> {
 				p.setNombre(rs.getString(2));
 				p.setMarca(rs.getString(3));
 				p.setModelo(rs.getString(4));
-				p.setCod_c(rs.getInt(5));
+				p.setC(new ClienteDAO().get(rs.getInt(5)));
+				//igual que el anterior
 				listaProductos.add(p);
 				
 			}
@@ -112,7 +121,7 @@ public class ProductoDAO extends DAO implements IDAO<Producto,Integer> {
 			sentencia.setString(1, ob.getNombre());
 			sentencia.setString(2, ob.getMarca());
 			sentencia.setString(3, ob.getModelo());
-			sentencia.setInt(4, ob.getCod_c());
+			sentencia.setInt(4, ob.getC().getCod_c());
 			sentencia.setInt(5, ob.getCod_p());
 			sentencia.executeUpdate();
 			result=1;

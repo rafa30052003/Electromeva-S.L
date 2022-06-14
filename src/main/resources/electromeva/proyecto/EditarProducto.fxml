@@ -17,8 +17,6 @@
             <Image url="@../imagenes/electrodomesticos-marysol_129287_0_600.jpg" />
          </image>
       </ImageView>
-      <TextField fx:id="txtCod_p" layoutX="101.0" layoutY="44.0" prefHeight="26.0" prefWidth="203.0" />
-      <Label layoutX="25.0" layoutY="48.0" text="Cod_p" textFill="WHITE" />
       <TextField fx:id="txtNombre" layoutX="101.0" layoutY="96.0" prefHeight="26.0" prefWidth="203.0" />
       <TextField fx:id="txtMarca" layoutX="101.0" layoutY="145.0" prefHeight="26.0" prefWidth="203.0" />
       <TextField fx:id="txtModelo" layoutX="101.0" layoutY="199.0" prefHeight="26.0" prefWidth="203.0" />
@@ -42,9 +40,7 @@
       </Label>
       <Label layoutX="18.0" layoutY="149.0" text="Marca" textFill="WHITE" />
       <Label layoutX="18.0" layoutY="203.0" text="Modelo" textFill="WHITE" />
-      <Button layoutX="37.0" layoutY="324.0" mnemonicParsing="false" onAction="#insertar" text="Insertar" />
-      <Button layoutX="163.0" layoutY="324.0" mnemonicParsing="false" onAction="#editar" text="Editar" />
-      <Button layoutX="275.0" layoutY="324.0" mnemonicParsing="false" onAction="#eliminar" text="Eliminar" />
+      <Button layoutX="118.0" layoutY="324.0" mnemonicParsing="false" onAction="#insertar" prefHeight="25.0" prefWidth="164.0" text="Insertar" />
       <TextField fx:id="txtCod_c" layoutX="101.0" layoutY="244.0" prefHeight="26.0" prefWidth="203.0" />
       <Label layoutX="22.0" layoutY="249.0" text="Cod_c" textFill="WHITE" />
       <Button layoutX="519.0" layoutY="349.0" mnemonicParsing="false" onAction="#switchToProductos" text="Atrás" />

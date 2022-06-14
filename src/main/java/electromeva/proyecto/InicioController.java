@@ -13,6 +13,7 @@ public class InicioController {
 	
 	 @FXML
 	    private void switchToClientes() throws IOException {
+		
 	        App.setRoot("ClientesView");
 	    }
 	 @FXML

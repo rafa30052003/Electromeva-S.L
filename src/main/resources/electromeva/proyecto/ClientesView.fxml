@@ -7,6 +7,7 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -70,7 +71,7 @@
          <center>
             <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <TableView fx:id="mitabla" layoutX="200.0" layoutY="45.0" prefHeight="260.0" prefWidth="377.0">
+                  <TableView fx:id="mitabla" layoutX="198.0" layoutY="92.0" prefHeight="260.0" prefWidth="377.0">
                     <columns>
                       <TableColumn fx:id="cod_c" prefWidth="75.0" text="cod_c" />
                       <TableColumn fx:id="nombre" prefWidth="91.0" text="nombre" />
@@ -78,7 +79,12 @@
                         <TableColumn fx:id="apodo" prefWidth="110.0" text="apodo" />
                     </columns>
                   </TableView>
-                  <Button layoutX="72.0" layoutY="163.0" mnemonicParsing="false" onAction="#switchToEditar" text="EDITAR" />
+                  <Button layoutX="58.0" layoutY="156.0" mnemonicParsing="false" onAction="#switchToInsertar" text="INSERTAR" />
+                  <Button layoutX="58.0" layoutY="222.0" mnemonicParsing="false" onAction="#eliminar" prefHeight="25.0" prefWidth="75.0" text="ELIMINAR" />
+                  <Label layoutX="278.0" layoutY="46.0" textFill="WHITE" />
+                  <TextField fx:id="buscar" layoutX="350.0" layoutY="34.0" />
+                  <Label layoutX="261.0" layoutY="38.0" text="BUSCAR" textFill="WHITE" />
+                  <Button layoutX="36.0" layoutY="281.0" mnemonicParsing="false" onAction="#verProductos" text="VER PRODUCTOS" />
                </children>
             </Pane>
          </center>
